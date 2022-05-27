@@ -1,0 +1,56 @@
+input.ng-invalid {
+    border-left: 10px solid red;
+}
+
+select.ng-invalid {
+    border-left: 10px solid red;
+}
+
+input.ng-valid {
+    border-left: 10px solid green;
+}
+
+select.ng-valid {
+    border-left: 10px solid green;
+}
+
+#addcandidate {
+    position: relative;
+    left: 70%;
+}
+
+#updatecandidate {
+    position: relative;
+    left: 60%;
+}
+
+.btnn {
+    color: #EE3524;
+    font-weight: 700;
+    border: 1px bold #EE3524;
+    box-shadow: 5px 10px 18px #888888;
+
+}
+
+.btnn:hover {
+    background-color: #EE3524;
+    color: aliceblue;
+}
+
+.ad {
+    position: relative;
+    left: 0%;
+}
+
+.but {
+    color: #EE3524;
+    font-weight: 700;
+    border: 1px bold #EE3524;
+    box-shadow: 5px 10px 18px #888888;
+}
+
+.but:hover {
+    background-color: #EE3524;
+    color: aliceblue;
+
+}

@@ -1,0 +1,168 @@
+<!--
+<div [formGroup]="details">
+    <div class="form-froup row">
+
+        <label class="col-sm-2 col-form-label">Candidate Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="CAN_NAME" formControlName="name"
+                placeholder="Enter Candidate Name" required>
+
+        </div>
+
+        <label class="col-sm-2 col-form-label">Candidate Email</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="CAN_EMAIL" formControlName="email"
+                placeholder="Enter Candidate Email">
+
+        </div>
+
+        <label class="col-sm-2 col-form-label">Candidate Source</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="CAN_SOURCE" formControlName="source"
+                placeholder="Enter Candidate Source">
+
+        </div>
+
+        <label class="col-sm-2 col-form-label">Candidate Status</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="CAN_STATUS" formControlName="status"
+                placeholder="Enter Candidate Status">
+
+        </div>
+
+        <label class="col-sm-2 col-form-label">Upload Resume</label>
+        <div class="col-sm-10">
+            <input type="file" class="form-control" [(ngModel)]="CAN_RESUME" formControlName="resume"
+                placeholder="Upload Resume">
+
+        </div>
+
+
+
+
+    </div>
+
+
+    <button (click)="addCandidate()" *ngIf="can.CAN_ID==0" class="btn btn-primary">
+        Add
+    </button>
+
+    <button (click)="updateCandidate()" *ngIf="can.CAN_ID!=0" class="btn btn-primary">
+        Update
+    </button>
+</div>
+-->
+<form [formGroup]="details">
+
+
+    <div class="form-group">
+        <label class="col-form-label">Candidate Name</label>
+        <input type="text" minlength=3 class="form-control" [(ngModel)]="CAN_NAME" formControlName="name"
+            placeholder="Enter Candidate Name" required>
+        <div class="alert alert-danger" *ngIf="name.touched && !name.valid ">
+            Candidate Name is required
+        </div>
+    </div>
+
+
+
+    <div class="form-group mt-4">
+        <label class="col-form-label font-weight-bold">Candidate Email</label>
+        <input type="text" required class="form-control" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z]{2,4}"
+            [(ngModel)]="CAN_EMAIL" formControlName="email" placeholder="Enter Candidate Email">
+        <div class="alert alert-danger" *ngIf="email.touched && !email.valid ">
+            <div *ngIf="email.errors.pattern">Invalid Mail ID</div>
+            <div *ngIf="email.errors.required">Please Enter Mail ID</div>
+        </div>
+    </div>
+
+    <div class="form-group mt-4">
+        <label class="col-form-label font-weight-bold">Candidate Phone Number</label>
+        <input type="text" required class="form-control" [(ngModel)]="CAN_PHONE" formControlName="phone"
+            placeholder="Enter Candidate Phone Number">
+        <div class="alert alert-danger" *ngIf="phone.touched && !phone.valid ">
+            <div *ngIf="phone.errors.required">Please Enter Phone Number</div>
+        </div>
+    </div>
+
+
+    <!--
+    <div class="form-group mt-4">
+        <label class="col-form-label font-weight-bold">Candidate Source</label>
+        <input type="text" class="form-control" [(ngModel)]="CAN_SOURCE" formControlName="source"
+            placeholder="Enter Candidate Source">
+        <div class="alert alert-danger" *ngIf="source.touched && !source.valid ">
+            Please enter Source
+        </div>
+    </div>
+-->
+
+
+    <div class="form-group mt-4">
+        <label class="col-form-label font-weight-bold">Candidate Source</label>
+        <select class="form-control form-select" [(ngModel)]="CAN_SOURCE" formControlName="source"
+            placeholder="Select Candidate Source">
+            <option value="" disabled selected hidden>Enter Candidate Source</option>
+            <option>Monster</option>
+            <option>Linked In</option>
+            <option>Naukri</option>
+            <option>FirstNaukri</option>
+            <option>InstaHire</option>
+            <option>D2C</option>
+            <option>CampusPlacements</option>
+        </select>
+        <div class="alert alert-danger" *ngIf="source.touched && !source.valid ">
+            Please Select Source
+        </div>
+    </div>
+
+
+
+    <!--
+    <div class="form-group mt-4">
+        <label class="col-form-label font-weight-bold">Candidate Status</label>
+        <input type="text" class="form-control" [(ngModel)]="CAN_STATUS" formControlName="status"
+            placeholder="Enter Candidate Status">
+        <div class="alert alert-danger" *ngIf="status.touched && !status.valid ">
+            Please enter Status
+        </div>
+    </div>
+-->
+
+    <div class="form-group mt-4">
+        <label class="col-form-label font-weight-bold">Candidate Status</label>
+        <select  class="form-control form-select" [(ngModel)]="CAN_STATUS" formControlName="status"
+            placeholder="Select Candidate Status">
+            <option value="" disabled selected hidden>Select Candidate Status</option>
+            <option>Selected-R1</option>
+            <option>Selected-R2</option>
+            <option>Rejected</option>
+            <option>Onboarded</option>
+        </select>
+        <div class="alert alert-danger" *ngIf="status.touched && !status.valid ">
+            Please Select Status
+        </div>
+    </div>
+
+
+    <div class="form-group mt-4">
+
+        <label class="col-form-label font-weight-bold">Upload Resume</label>
+        <input type="file" class="form-control" (change)="uploadResume($event)" [(ngModel)]="CAN_RESUME"
+            formControlName="resume" placeholder="Upload Resume">
+        <div class="alert alert-danger" *ngIf="resume.touched && !resume.valid ">
+            Please Upload Resume
+        </div>
+
+    </div>
+    <button (click)="addCandidate()" id="addcandidate" *ngIf="can.CAN_ID==0"
+        class="btn but align-self-end ml-auto mt-4">
+        Add Candidate
+    </button>
+
+    <button (click)="updateCandidate()" id="updatecandidate" *ngIf="can.CAN_ID!=0"
+        class="btn but align-self-end ml-auto mt-4">
+        Update Candidate
+    </button>
+
+</form>

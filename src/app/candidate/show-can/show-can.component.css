@@ -1,0 +1,149 @@
+.ngx-pagination {
+    padding-left: 0px !important;
+}
+
+.ngx-pagination .current,
+.btn-info {
+    background: #17a2b8 !important;
+    border: transparent !important;
+    border-radius: 20px !important;
+}
+
+.ngx-pagination .current:hover {
+    background: #17a2b8 !important;
+    border-radius: 20px !important;
+    border: transparent !important;
+}
+
+.ngx-pagination .current {
+    padding: 0.1875rem 0.625rem;
+    background: #fff !important;
+    color: #fefefe;
+    cursor: default;
+}
+
+.table {
+    background-color: #fff;
+    border-radius: 15px;
+    
+}
+
+.center {
+    text-align: center;
+}
+
+.bg {
+    background-image: url("../images/background.jpg");
+    height: 100vh;
+}
+
+.headerr {
+    height: 3em;
+    background-color: #EE3524;
+}
+
+.btnn {
+    color: #EE3524;
+    font-weight: 700;
+    border: 1px bold #EE3524;
+    box-shadow: 5px 10px 18px #888888;
+
+}
+
+.btnn:hover {
+    background-color: #EE3524;
+    color: aliceblue;
+}
+
+.btn {
+    color: #EE3524;
+    font-weight: 700;
+    border: 1px bold #EE3524;
+
+
+}
+
+.btn:hover {
+    background-color: #EE3524;
+    color: aliceblue;
+}
+
+.bs {
+    box-shadow: 5px 10px 18px #888888;
+}
+
+.pgbg {
+    background-color: #fff;
+    width: fit-content;
+    position: relative;
+    left: 80%;
+    height: 2em;
+    border-radius: 5px;
+}
+
+.gsearch {
+    width: 40%;
+    height: 2.5em;
+    border-radius: 15px;
+    position: relative;
+    border-color: white;
+    padding-left: 2em;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 0px 0px 1px rgba(104, 113, 130, 0.16);
+    border-radius: 6px;
+}
+
+.toprow {
+    border-collapse: collapse;
+    border-bottom: #fefefe;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    background-color: aliceblue;
+}
+
+.bi-search {
+    position: relative;
+    left: 3%;
+    z-index: 1;
+    top: 10%;
+}
+
+.right {
+    position: absolute;
+    left: 1000px;
+}
+
+a {
+    color: #EE3524;
+}
+
+a:hover {
+    color: #EE3524;
+}
+
+.addcan{
+    position: relative;
+    left: 20%;
+}
+
+.advsearch{
+    position: relative;
+    left: 10%;
+}
+
+.buttons{
+    position: relative;
+    
+}
+
+.hmt{
+    position: absolute;
+    left: 40%;
+    top: 0px;
+    color: #fefefe;
+
+}

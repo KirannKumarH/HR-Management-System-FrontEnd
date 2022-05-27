@@ -1,0 +1,79 @@
+.leftside, .rightside{
+    height: 100vh;
+    width: 100%;
+}
+
+.logo{
+    background-image: url("./redlogo.png");
+}
+
+
+@media screen and (min-width:768px) {
+    .leftside, .rightside{
+        height: 100vh;
+    }
+    
+}
+
+.formcontainer{
+    width: 50%;
+    position: relative;
+    top: 35%;
+    left: 25%;
+    
+}
+
+input{
+    background-color: #E8F1FB;
+}
+
+.labels{
+    font-size:large; font-weight: 600;
+}
+
+.login{
+    font-weight: 600;
+    position: relative; 
+    top: 25%; 
+    left: 42%; 
+}
+
+.signin{
+    position: relative;
+    left: 0%;
+    top: 2em;
+  
+}
+
+.allcontainer{
+  
+    position: relative;
+   
+    top: 30%;
+}
+
+.btn{
+    width: 450px;
+}
+
+.color{
+    background-color: #EE3524;
+    color: #ffff;
+}
+
+a:link {
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+  }

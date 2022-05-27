@@ -1,0 +1,403 @@
+<!--
+
+
+<div class="float-right">
+  <button type="button" class="btn btn-primary float-right m-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
+    (click)="addClick()">
+    Add Candidate
+  </button>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" (click)="closeClick()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-add-edit-can [can]="can" *ngIf="ActivateAddEditCanComp"></app-add-edit-can>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>
+        <div class="d-flex flex-row">
+          <input [(ngModel)]="CanIdFilter" class="form-control" (keyup)="FilterFn()"
+            placeholder="Search By Candidate ID">
+        </div>
+        Candidate Id
+      </th>
+      <th>
+        <div class="d-flex flex-row">
+          <input [(ngModel)]="CanNameFilter" class="form-control" (keyup)="FilterFn()"
+            placeholder="Search By Candidate Name">
+        </div>
+        Candidate Name
+      </th>
+      <th>
+        <div class="d-flex flex-row">
+          <input [(ngModel)]="CanEmailFilter" class="form-control" (keyup)="FilterFn()"
+            placeholder="Search By Candidate Email">
+        </div>
+        Candidate Email
+      </th>
+      <th>
+        <div class="d-flex flex-row">
+          <input [(ngModel)]="CanSourceFilter" class="form-control" (keyup)="FilterFn()"
+            placeholder="Search By Candidate Source">
+        </div>
+        Candidate Source
+      </th>
+      <th>
+        <div class="d-flex flex-row">
+          <input [(ngModel)]="CanStatusFilter" class="form-control" (keyup)="FilterFn()"
+            placeholder="Search By Candidate Status">
+        </div>
+        Candidate Status
+      </th>
+      <th>
+        Candidate Resume
+      </th>
+
+
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dataItem of  CandidateList">
+      <td>{{dataItem.CAN_ID}}</td>
+      <td>{{dataItem.CAN_NAME}}</td>
+      <td>{{dataItem.CAN_EMAIL}}</td>
+      <td>{{dataItem.CAN_SOURCE}}</td>
+      <td>{{dataItem.CAN_STATUS}}</td>
+      <td>{{dataItem.CAN_RESUME}}</td>
+      <td>
+        <button type="button" class="btn btn-light border-primary mr-1" data-bs-toggle="modal"
+          data-bs-target="#exampleModal" data-backdrop="static" data-keyboard="false" (click)="editClick(dataItem)">
+          Edit
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square"
+            viewBox="0 0 16 16">
+            <path
+              d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+            <path fill-rule="evenodd"
+              d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+          </svg>
+        </button>
+        <button type="button" class="btn btn-light border-danger mr-1" (click)="deleteClick(dataItem)">
+          Delete
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill"
+            viewBox="0 0 16 16">
+            <path
+              d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
+          </svg>
+        </button>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+-->
+
+<div class="bg">
+  <div>
+
+    <div>
+      <div class="headerr">
+        <img src="../../../assets/images/logo.png" class="mt-2" alt="logo">
+        <!--
+        <i class="bi bi-search"></i>
+      
+        <input [(ngModel)]="Filter" class="gsearch" (keyup)="FilterF()" placeholder="Search by Candidate Details">
+       -->
+        <div class="hmt">
+          <h3>
+            HR Management System
+          </h3>
+
+        </div>
+        <a routerLink="/login">
+          <button class="btn btn-light position-absolute top-0 end-0 mt-1 me-1"> Log Out </button>
+        </a>
+      </div>
+
+    </div>
+
+
+
+    <!--
+
+    <p class="d-flex justify-content-around mt-5">
+      <button class="btn btn-light btnn m-2 fs-5" type="button" data-bs-toggle="collapse"
+        data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Advanced Search
+      </button>
+
+      <button type="button" class="btn btn-light btnn m-2 fs-5" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        (click)="addClick()">
+        Add Candidate
+      </button>
+   
+    </p>
+
+  -->
+<!--
+    <div class="collapse mt-5" id="collapseExample">
+      <div class="d-flex justify-content-around md-5">
+        <div>
+          <input [(ngModel)]="CanIdFilter" class="form-control bs" (keyup)="FilterFn()" placeholder="Candidate ID">
+        </div>
+        <div>
+          <input [(ngModel)]="CanNameFilter" class="form-control bs " (keyup)="FilterFn()" placeholder="Candidate Name">
+        </div>
+        <div>
+          <input [(ngModel)]="CanEmailFilter" class="form-control bs" (keyup)="FilterFn()"
+            placeholder="Candidate Email">
+        </div>
+        <div>
+          <input [(ngModel)]="CanSourceFilter" class="form-control bs" (keyup)="FilterFn()"
+            placeholder="Candidate Source">
+        </div>
+        <div>
+          <input [(ngModel)]="CanStatusFilter" class="form-control bs" (keyup)="FilterFn()"
+            placeholder="Candidate Status">
+        </div>
+      </div>
+    </div>
+  -->
+  </div>
+  <br>
+  <!-- Button trigger modal -->
+  <!--
+  <div class="d-flex flex-row-reverse bd-highlight">
+    <button type="button" class="btn btn-light btnn m-2 fs-5"  data-bs-toggle="modal" data-bs-target="#exampleModal"
+      (click)="addClick()">
+      Add Candidate
+    </button>
+  </div>
+-->
+  <!-- Modal -->
+  <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" (click)="closeClick()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <app-add-edit-can [can]="can" *ngIf="ActivateAddEditCanComp"></app-add-edit-can>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!--
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+    aria-expanded="false" aria-controls="collapseExample">
+    Button with data-target
+  </button>
+  
+  
+  <div class="collapse d-flex justify-content-around" id="collapseExample">
+ 
+      <div>hi</div>
+      <div>hello</div>
+      <div>byer</div>
+      <div>byer</div>
+      <div>byer</div>
+    
+  </div>
+
+-->
+
+  <div class="container-lg">
+    <table class="table table-striped  mt-4">
+      <thead class="bg-light">
+        <tr class="toprow">
+          <th colspan="6">
+            <i class="bi bi-search"></i>
+            <input [(ngModel)]="Filter" class="gsearch" (keyup)="FilterF()" placeholder="Search">
+          </th>
+
+          <th colspan="3" class="buttons">
+            <button class="btn btn-light btnn m-2 advsearch fs-5" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              Advanced Search
+            </button>
+            <button type="button" class="btn btn-light btnn m-2 fs-5 addcan" data-bs-toggle="modal"
+              data-bs-target="#exampleModal" (click)="addClick()">
+              Add Candidate
+            </button>
+          </th>
+        </tr>
+        <tr class="collapse mt-5" id="collapseExample">
+          <td>
+           
+          </td>
+          <td>
+          
+          </td>
+          <td>
+            <input [(ngModel)]="CanIdFilter" class="form-control bs" (keyup)="FilterFn()" placeholder="ID">
+          </td>
+          <td>
+            <div>
+              <input [(ngModel)]="CanNameFilter" class="form-control bs " (keyup)="FilterFn()" placeholder="Candidate Name">
+            </div>
+          </td>
+          <td>
+            <div>
+              <input [(ngModel)]="CanEmailFilter" class="form-control bs" (keyup)="FilterFn()"
+                placeholder="Candidate Email">
+            </div>
+          </td>
+          <td>
+            <div>
+              <input [(ngModel)]="CanPhoneFilter" class="form-control bs" (keyup)="FilterFn()"
+                placeholder="Candidate Phone">
+            </div>
+          </td>
+          <td>
+            <input [(ngModel)]="CanSourceFilter" class="form-control bs" (keyup)="FilterFn()"
+            placeholder="Candidate Source">
+          </td>
+          <td>
+            <input [(ngModel)]="CanStatusFilter" class="form-control bs" (keyup)="FilterFn()"
+            placeholder="Candidate Status">
+          </td>
+          <td>
+           
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <!--Edit-->
+            <button type="button" class="btn  mr-1"  title="Export as CSV" (click)="export()">
+              <i class="bi bi-filetype-csv" ></i>
+            </button>
+          </th>
+          <th>
+            <!--Delete-->
+          </th>
+          <th class="col-sm-1">
+            <div class="d-flex flex-row">
+              <!--
+            <input [(ngModel)]="CanIdFilter" class="form-control" (keyup)="FilterFn()"
+              placeholder="Search By Candidate ID">
+            -->
+            </div>
+            Id
+          </th>
+
+          <th class="col-sm-2">
+            <div class="d-flex flex-row">
+              <!--
+            <input [(ngModel)]="CanNameFilter" class="form-control" (keyup)="FilterFn()"
+              placeholder="Search By Candidate Name">
+            -->
+            </div>
+            Candidate Name
+          </th>
+          <th class="col-sm-2">
+            <div class="d-flex flex-row">
+              <!--
+            <input [(ngModel)]="CanEmailFilter" class="form-control" (keyup)="FilterFn()"
+              placeholder="Search By Candidate Email">
+            -->
+            </div>
+            Candidate Email
+          </th>
+          <th class="col-sm-2">
+            <div class="d-flex flex-row">
+              <!--
+            <input [(ngModel)]="CanEmailFilter" class="form-control" (keyup)="FilterFn()"
+              placeholder="Search By Candidate Email">
+            -->
+            </div>
+            Candidate Phone
+          </th>
+          <th class="col-sm-2">
+            <div class="d-flex flex-row">
+              <!--
+            <input [(ngModel)]="CanSourceFilter" class="form-control" (keyup)="FilterFn()"
+              placeholder="Search By Candidate Source">
+            -->
+            </div>
+            Candidate Source
+          </th>
+          <th class="col-sm-2">
+            <div class="d-flex flex-row">
+              <!--
+            <input [(ngModel)]="CanStatusFilter" class="form-control" (keyup)="FilterFn()"
+              placeholder="Search By Candidate Status">
+            -->
+            </div>
+            Candidate Status
+          </th>
+          <th class="col-sm-2">
+            Resume
+          </th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dataItem of  CandidateList | paginate: { itemsPerPage: 12, currentPage: p } ">
+          <td>
+            <button type="button" class="btn " data-bs-toggle="modal" title="Edit" data-bs-target="#exampleModal"
+              data-backdrop="static" data-keyboard="false" (click)="editClick(dataItem)">
+              <i class="bi bi-pen-fill"></i>
+            </button>
+          </td>
+          <td>
+            <button type="button" class="btn  mr-1"  title="Delete" (click)="deleteClick(dataItem)">
+              <i class="bi bi-trash-fill"></i>
+            </button>
+          </td>
+
+          <td>{{dataItem.CAN_ID}}CSG2022</td>
+
+          <td>{{dataItem.CAN_NAME}} </td>
+          <td>{{dataItem.CAN_EMAIL}}</td>
+          <td>{{dataItem.CAN_PHONE}}</td>
+          <td>{{dataItem.CAN_SOURCE}}</td>
+          <td>{{dataItem.CAN_STATUS}}</td>
+          <!--
+          <td><a href="https://localhost:44354/api/candidate/download/{{dataItem.CAN_ID}}"
+             >{{dataItem.CAN_RESUME}}</a></td>
+          -->
+          <td class="center">
+
+            <a href="https://localhost:44354/api/candidate/download/{{dataItem.CAN_ID}}"  title="Download"><i
+                class="bi bi-download"></i></a>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://localhost:44354/api/candidate/view/{{dataItem.CAN_ID}}" title="View" target="_blank"><i
+                class="bi bi-eye-fill"></i></a>
+          </td>
+
+
+        </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+  <div class="pagination pgbg">
+    <pagination-controls class="page-link bg-light" (pageChange)="p = $event" class="float-right"></pagination-controls>
+  </div>
+
+</div>

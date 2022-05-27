@@ -1,0 +1,106 @@
+<!--
+
+    <div class="form-group mt-4">
+        <label class="col-form-label font-weight-bold">Username</label>
+        <input type="text" class="form-control"  formControlName="status"
+            placeholder="UserName">
+      
+    </div>
+
+    <div class="form-group mt-4">
+        <label class="col-form-label font-weight-bold">Password</label>
+        <input type="text" class="form-control"  formControlName="status"
+            placeholder="Password">
+      
+    </div>
+-->
+<div class="row g-0">
+
+    <div class="col-md-6 g-0">
+
+        <div class="leftside">
+
+            <img src="../../assets/images/becsg1.jpg" alt="bgimage" width="100%" height="100%">
+
+        </div>
+    </div>
+
+    <div class="col-md-6 g-0">
+        <div class="rightside ">
+            <!--
+            <img src="../../assets/images/redlogo.png" alt="logo" style="width: 100px; " class="float-right">
+            -->
+
+            <div class="formcontainer" [formGroup]="details">
+
+                <div class="fs-1 login">
+                    Create An Account
+                </div>
+                <div class="register">
+                    Already have an account ?<a routerLink="/login"> Login</a>
+                </div>
+
+                <div class="row ">
+
+                    <div class="form-group mt-4 col">
+                        <label class="col-form-label labels">First-Name</label>
+                        <input type="text" class="form-control inputtag" formControlName="fname"
+                            [ngClass]="{'is-invalid':details.get('fname').errors && details.get('fname').touched}"
+                            [(ngModel)]="HR_FIRSTNAME" placeholder="Enter First Name">
+                        <div class="invalid-feedback" *ngIf="details.get('fname').hasError('required')">
+                            First Name is Required
+                        </div>
+
+                    </div>
+
+                    <div class="form-group mt-4 col">
+                        <label class="col-form-label font-weight-bold labels">Last-Name</label>
+                        <input type="text" required class="form-control inputtag" formControlName="lname"
+                            [(ngModel)]="HR_LASTNAME" placeholder="Enter Last Name"
+                            [ngClass]="{'is-invalid':details.get('lname').errors && details.get('lname').touched}">
+                        <div class="invalid-feedback" *ngIf="details.get('lname').hasError('required')">
+                            Last Name is Required
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group emaildiv">
+                    <label class="col-form-label labels">Email Address</label>
+                    <input id="email" type="text" minlength=3 class="form-control inputtag" formControlName="email"
+                        [ngClass]="{'is-invalid':details.get('email').errors && details.get('email').touched}"
+                        [(ngModel)]="HR_EMAIL" placeholder="Enter Email Address" required>
+                    <div class="invalid-feedback" *ngIf="details.get('email').hasError('usernameTaken')">
+                        Email Address Exists
+                    </div>
+                    <div class="invalid-feedback" *ngIf="details.get('email').hasError('required')">
+                        Email is Required
+                    </div>
+                    <div class="invalid-feedback" *ngIf="details.get('email').hasError('email')">
+                        Invalid Email Id
+                    </div>
+                </div>
+
+                <div class="form-group mt-4">
+                    <label class="col-form-label font-weight-bold labels">Password</label>
+                    <input id="password" type="password" required class="form-control inputtag" formControlName="pass"
+                        [ngClass]="{'is-invalid':details.get('pass').errors && details.get('pass').touched}"
+                        [(ngModel)]="HR_PW" placeholder="Enter Password">
+                    <div class="invalid-feedback" *ngIf="details.get('pass').hasError('required')">
+                     
+                    </div>
+                </div>
+
+                <a href="https://csgsystems.sharepoint.com/sites/brand/Pages/CSG%20Facts%20%26%20Stats.aspx"
+                    target="_blank">Read our<span style="color: red!;"> Privacy statement</span></a>
+
+                <div class="signin mt-5">
+                    <!--   <a routerLink="/candidate"><button class="btn color"> Log In </button></a> -->
+                    <button (click)="registerSubmit()" [disabled]="!details.valid" class="btn color"> Register </button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
